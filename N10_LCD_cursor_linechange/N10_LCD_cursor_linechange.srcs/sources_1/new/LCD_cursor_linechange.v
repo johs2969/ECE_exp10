@@ -173,11 +173,11 @@ begin
                     2'b10 : begin {LCD_RS, LCD_RW, LCD_DATA} <= 10'b0_0_0001_0000; // left  
                              ccnt <= ccnt-1; 
                             end    
-                    2'b01 : if(ccnt == 7'b0010101) begin // address가 line1 15지점에 있을때, 오른쪽 쉬프트를 한 상황
+                    2'b01 : if(ccnt == 7'b0001111) begin // address가 line1 15지점에 있을때, 오른쪽 쉬프트를 한 상황
                               {LCD_RS, LCD_RW, LCD_DATA} <= 10'b0_0_1000_0000; // line1 첫번째 주소로 이동
                               ccnt <= 7'b0000000;
                               end
-                            else if(ccnt == 7'b1010101) begin// address가 line2 55지점에 있을때, 오른쪽 쉬프트를 한 상황
+                            else if(ccnt == 7'b1001111) begin// address가 line2 55지점에 있을때, 오른쪽 쉬프트를 한 상황
                              {LCD_RS, LCD_RW, LCD_DATA} <= 10'b0_0_1100_0000; // line 2 첫번쨰 주소로 이동
                              ccnt <=7'b1000000;
                              end
