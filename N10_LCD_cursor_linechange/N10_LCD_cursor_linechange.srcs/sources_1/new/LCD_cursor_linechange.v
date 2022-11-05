@@ -91,7 +91,7 @@ begin
         else cnt <= cnt + 1;
         state <= (!btn)? SET_LINE_1:DELAY_T;
         line <= 1'b1;
-        ccnt <=7'b10000000;
+        ccnt <=7'b1000000;
         end
         DELAY_T :begin
             cnt <= 0;
@@ -179,7 +179,7 @@ begin
                               end
                             else if(ccnt == 7'b1010101) begin// address가 line2 55지점에 있을때, 오른쪽 쉬프트를 한 상황
                              {LCD_RS, LCD_RW, LCD_DATA} <= 10'b0_0_1100_0000; // line 2 첫번쨰 주소로 이동
-                             ccnt <=7'b10000000;
+                             ccnt <=7'b1000000;
                              end
                             else begin {LCD_RS, LCD_RW, LCD_DATA} <= 10'b0_0_0001_0100; // 나머지 경우는 오른쪽 shift 실행
                              ccnt <= ccnt+1; 
